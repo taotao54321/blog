@@ -1,0 +1,27 @@
+base_url = "https://taotao54321.github.io/blog/"
+title = "TaoTao54321's blog"
+
+theme = "even"
+
+compile_sass = true
+
+taxonomies = [
+    { name = "categories" },
+    { name = "tags" },
+]
+
+[markdown]
+highlight_code = true
+
+extra_syntaxes_and_themes = ["syntaxes/ca65-sublime-syntax"]
+
+[extra]
+author = "TaoTao54321"
+
+even_title = "TaoTao54321's blog"
+even_menu = [
+    { url = "$BASE_URL", name = "Home" },
+    #{ url = "$BASE_URL/categories", name = "Categories" },
+    { url = "$BASE_URL/tags", name = "Tags" },
+    { url = "https://github.com/taotao54321/blog", name = "GitHub" },
+]

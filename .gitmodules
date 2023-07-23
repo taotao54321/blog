@@ -1,0 +1,6 @@
+[submodule "themes/even"]
+	path = themes/even
+	url = https://github.com/getzola/even.git
+[submodule "syntaxes/ca65-sublime-syntax"]
+	path = syntaxes/ca65-sublime-syntax
+	url = https://github.com/taotao54321/ca65-sublime-syntax.git
