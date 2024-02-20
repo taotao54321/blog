@@ -1,0 +1,6 @@
+<video controls
+       {%- if width is defined -%}width="{{ width }}"{%- endif -%}
+       {%- if height is defined -%}height="{{ height }}"{%- endif -%}>
+    <source src="{{ src | safe }}" type="video/mp4" />
+    <a href="{{ src | safe }}">Video</a>
+</video>
