@@ -1,7 +1,7 @@
 +++
 title = "一部の商用 FC/NES ゲームに存在する ROM 内ヘッダについて"
 date = 2024-05-27
-updated = 2024-05-28
+updated = 2024-05-29
 
 [taxonomies]
 tags = ["NES"]
@@ -34,6 +34,6 @@ ROM 内ヘッダの配置方法には若干の揺れがある:
 
 thefox 氏が日本/USA/ヨーロッパの ROM セットに対する ROM 内ヘッダの調査結果を公開している。現在はリンク切れだが、Internet Archive から入手できる:
 
-* [hdrinfos-japan.txt](https://web.archive.org/web/20140922133703/http://thefox.aspekt.fi/hdrinfos-japan.txt)
-* [hdrinfos-usa.txt](https://web.archive.org/web/20140922133703/https://thefox.aspekt.fi/hdrinfos-usa.txt)
-* [hdrinfos-europe.txt](https://web.archive.org/web/20140922133703/https://thefox.aspekt.fi/hdrinfos-europe.txt)
+* [hdrinfos-japan-valid.txt](https://web.archive.org/web/20140922133709/http://thefox.aspekt.fi/hdrinfos-japan-valid.txt)
+* [hdrinfos-usa-valid.txt](https://web.archive.org/web/20140922133708/http://thefox.aspekt.fi/hdrinfos-usa-valid.txt)
+* [hdrinfos-europe-valid.txt](https://web.archive.org/web/20140922133708/http://thefox.aspekt.fi/hdrinfos-europe-valid.txt)
