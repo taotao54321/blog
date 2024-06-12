@@ -1,11 +1,15 @@
 +++
 title = "一部の商用 FC/NES ゲームに存在する ROM 内ヘッダについて"
 date = 2024-05-27
-updated = 2024-05-29
+updated = 2024-06-13
 
 [taxonomies]
 tags = ["NES"]
 +++
+
+*2024-06-13 追記*: NesDev Wiki に[より詳細な解説](https://www.nesdev.org/wiki/Nintendo_header)があるので、そちらを参照。
+
+----
 
 一部の商用 FC/NES ゲームは、PRG-ROM 末尾の割り込みベクタ手前に 26 バイトの ROM 内ヘッダらしきものを持っている (通常は論理アドレス `$FFE0-$FFF9` にマップされる。以下、このことを仮定する)。
 
