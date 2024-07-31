@@ -25,3 +25,5 @@ even_menu = [
     { url = "$BASE_URL/tags", name = "Tags" },
     { url = "https://github.com/taotao54321/blog", name = "GitHub" },
 ]
+
+katex_enable = true
