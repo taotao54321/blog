@@ -32,6 +32,8 @@ rem      := $03
 ```ca65
 ;;; 正しい u16 / u8 除算。
 ; 開始時は lhs_quot に左辺が入っており、lhs_quot の下位から商がシフトインしていく。
+;
+; NOTE: rhs == 0 の場合、quot = 0xFFFF, rem = lhs & 0xFF を返す。
 DivCorrect:
         lda     #0
         sta     rem
