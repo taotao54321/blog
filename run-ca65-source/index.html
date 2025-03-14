@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+      
+    
+
+      <title>TaoTao54321&#x27;s blog - ca65 のソースコードを直接実行する</title>
+
+      
+
+      
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+          
+      
+
+      
+          <link rel="stylesheet" href="https://taotao54321.github.io/blog/site.css">
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+          
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;" class="logo">TaoTao54321&#x27;s blog</a>
+              </div>
+              <div class="mobile-navbar-icon icon-out">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
+              <ul class="mobile-menu-list">
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">
+                            Home
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;&#x2F;tags">
+                            Tags
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;">
+                            My website
+                        </a>
+                    </li>
+                
+              </ul>
+            </nav>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">TaoTao54321&#x27;s blog</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">
+                                    Home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;&#x2F;tags">
+                                    Tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;">
+                                    My website
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+
+
+
+<article class="post">
+    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;run-ca65-source&#x2F;">ca65 のソースコードを直接実行する</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2023-07-23</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+      <p>ca65 はコメント開始文字が ';' なので、シェルから直接実行可能なソースコードが書ける。</p>
+<p>たとえば、以下のソースコードを <code>foo.s</code> として保存し、<code>sh foo.s</code> とすると直接 FCEUX 上で実行できる
+(事前に <code>cc65</code>, <code>fceux</code> パッケージをインストールしておく必要がある)。</p>
+<pre data-lang="ca65" style="background-color:#2b303b;color:#c0c5ce;" class="language-ca65 "><code class="language-ca65" data-lang="ca65"><span>_DUMMY=</span><span style="color:#d08770;">0</span><span style="color:#65737e;">; ca65 -o foo.o &quot;$0&quot; &amp;&amp; ld65 --target nes -o foo.nes foo.o &amp;&amp; fceux foo.nes; exit
+</span><span>
+</span><span style="color:#65737e;">; 矩形波を再生するだけ。
+</span><span>
+</span><span style="color:#b48ead;">.segment </span><span>&quot;</span><span style="color:#a3be8c;">HEADER</span><span>&quot;
+</span><span>
+</span><span>        </span><span style="color:#b48ead;">.byte   </span><span>&quot;</span><span style="color:#a3be8c;">NES</span><span>&quot;, </span><span style="color:#d08770;">$1A      </span><span style="color:#65737e;">; iNES magic
+</span><span>        </span><span style="color:#b48ead;">.byte   </span><span style="color:#d08770;">2               </span><span style="color:#65737e;">; 16K PRG count
+</span><span>        </span><span style="color:#b48ead;">.byte   </span><span style="color:#d08770;">1               </span><span style="color:#65737e;">; 8K CHR Count
+</span><span>        </span><span style="color:#b48ead;">.byte   </span><span style="color:#d08770;">0               </span><span style="color:#65737e;">; Mapper 0, Horizontal mirroring
+</span><span>
+</span><span style="color:#b48ead;">.segment </span><span>&quot;</span><span style="color:#a3be8c;">CODE</span><span>&quot;
+</span><span>
+</span><span style="color:#8fa1b3;">Reset:
+</span><span>        lda     #</span><span style="color:#d08770;">$0F
+</span><span>        sta     </span><span style="color:#d08770;">$4015
+</span><span>
+</span><span>        lda     #(</span><span style="color:#d08770;">1 </span><span>&lt;&lt; </span><span style="color:#d08770;">5</span><span>) | (</span><span style="color:#d08770;">1 </span><span>&lt;&lt; </span><span style="color:#d08770;">4</span><span>) | </span><span style="color:#d08770;">15
+</span><span>        sta     </span><span style="color:#d08770;">$4000
+</span><span>        lda     #&lt;</span><span style="color:#d08770;">253
+</span><span>        sta     </span><span style="color:#d08770;">$4002
+</span><span>        lda     #&gt;</span><span style="color:#d08770;">253
+</span><span>        sta     </span><span style="color:#d08770;">$4003
+</span><span>
+</span><span>@loop_forever:
+</span><span>        </span><span style="color:#b48ead;">jmp</span><span>     @loop_forever
+</span><span>
+</span><span style="color:#8fa1b3;">Nmi:
+</span><span style="color:#8fa1b3;">Irq:
+</span><span>        </span><span style="color:#b48ead;">rti
+</span><span>
+</span><span style="color:#b48ead;">.segment </span><span>&quot;</span><span style="color:#a3be8c;">VECTORS</span><span>&quot;
+</span><span>
+</span><span>        </span><span style="color:#b48ead;">.addr</span><span>   Nmi
+</span><span>        </span><span style="color:#b48ead;">.addr</span><span>   Reset
+</span><span>        </span><span style="color:#b48ead;">.addr</span><span>   Irq
+</span></code></pre>
+<p>サウンドのみを扱うコードを手軽にテストしたい場合に役立つかも。</p>
+<p>なお、セグメントの割り当てについては cc65 の <a href="https://github.com/cc65/cc65/blob/ce3bcadd24d3af05dc30f542722f6efb66382e82/cfg/nes.cfg">nes.cfg</a> を参照。</p>
+<p>この記事は <a href="https://blog.cardina1.red/2017/04/02/direct-source-execution/">ソースコード直接実行のテクニック - 何とは言わない天然水飲みたさ</a> からヒントを得て作成した。</p>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https://taotao54321.github.io/blog/tags/nes/">#NES</a>
+                    
+                        <a href="https://taotao54321.github.io/blog/tags/ca65/">#ca65</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;pce-shinobi-cheat-boss-hp&#x2F;">‹ 忍 (PCE) ボスのHPを減らす裏技</a>
+                    
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+      
+          <script type="text/javascript" src="https://taotao54321.github.io/blog/even.js" ></script>
+      
+    </body>
+
+</html>
