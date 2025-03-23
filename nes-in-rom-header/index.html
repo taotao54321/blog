@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+      
+    
+
+      <title>TaoTao54321&#x27;s blog - 一部の商用 FC&#x2F;NES ゲームに存在する ROM 内ヘッダについて</title>
+
+      
+
+      
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+          
+      
+
+      
+          <link rel="stylesheet" href="https://taotao54321.github.io/blog/site.css">
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+          
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;" class="logo">TaoTao54321&#x27;s blog</a>
+              </div>
+              <div class="mobile-navbar-icon icon-out">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
+              <ul class="mobile-menu-list">
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">
+                            Home
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;&#x2F;tags">
+                            Tags
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;">
+                            My website
+                        </a>
+                    </li>
+                
+              </ul>
+            </nav>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">TaoTao54321&#x27;s blog</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">
+                                    Home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;&#x2F;tags">
+                                    Tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;">
+                                    My website
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+
+
+
+<article class="post">
+    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-in-rom-header&#x2F;">一部の商用 FC&#x2F;NES ゲームに存在する ROM 内ヘッダについて</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2024-05-27</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+      <p><em>2024-06-13 追記</em>: NesDev Wiki に<a href="https://www.nesdev.org/wiki/Nintendo_header">より詳細な解説</a>があるので、そちらを参照。</p>
+<hr />
+<p>一部の商用 FC/NES ゲームは、PRG-ROM 末尾の割り込みベクタ手前に 26 バイトの ROM 内ヘッダらしきものを持っている (通常は論理アドレス <code>$FFE0-$FFF9</code> にマップされる。以下、このことを仮定する)。</p>
+<p>この ROM 内ヘッダの内容については NesDev Forum 内の "<a href="https://forums.nesdev.org/viewtopic.php?t=6078">Headers at the end of commercial roms</a>" スレッドである程度解明されている。以下に概要を示す:</p>
+<table><thead><tr><th>addr</th><th>type</th><th>description</th></tr></thead><tbody>
+<tr><td><code>$FFE0</code></td><td><code>u8[16]</code></td><td>ゲーム名。16 バイトに満たない場合、先頭または末尾が 0x00 または 0x20 でパディングされる。</td></tr>
+<tr><td><code>$FFF0</code></td><td><code>u16</code></td><td>PRG チェックサム (チェックサム領域を除いた全バイトの総和)。<br>PRG 全体を対象とするものと、PRG 最終バンクのみを対象とするものがある。<br>大抵はビッグエンディアンだが、リトルエンディアンの場合もある。</td></tr>
+<tr><td><code>$FFF2</code></td><td><code>u16</code></td><td>CHR チェックサム (全バイトの総和) だが、大抵は 0 になっている。</td></tr>
+<tr><td><code>$FFF4</code></td><td><code>u8</code></td><td>ROM サイズ情報。<br>bit7-4: PRG サイズ (0:64KiB, 2:32KiB, 3:128KiB, 4:256KiB or 512KiB, 5:512KiB)<br>bit3-0: CHR サイズ (0:8KiB RAM, 1:16KiB, 2:32KiB, 3:128KiB, 4:256KiB, 8:8KiB RAM)</td></tr>
+<tr><td><code>$FFF5</code></td><td><code>u8</code></td><td>VRAM ミラーリング (2:V, 4:マッパー制御, 0x81:H, 0x82:H)</td></tr>
+<tr><td><code>$FFF6</code></td><td></td><td>(不明。バージョン番号?)</td></tr>
+<tr><td><code>$FFF7</code></td><td></td><td>(不明。0x10 以下の値になる?)</td></tr>
+<tr><td><code>$FFF8</code></td><td><code>u8</code></td><td>licensee code (ゲームボーイ ROM ヘッダ内の <a href="https://gbdev.io/pandocs/The_Cartridge_Header.html#014b--old-licensee-code">Old licensee code</a> と同様と思われる)</td></tr>
+<tr><td><code>$FFF9</code></td><td></td><td>(不明。同一シリーズ作品では同じ値になる?)</td></tr>
+</tbody></table>
+<p>ROM 内ヘッダの配置方法には若干の揺れがある:</p>
+<ul>
+<li>ゲーム名先頭のパディング部を削ってプログラム用に使っているゲームもある (『ミニパット』など)。</li>
+<li>全バンクに ROM 内ヘッダが置かれているゲームもある (『ドラゴンクエスト4』『ウィザードリィ』など)。</li>
+</ul>
+<p>ヘッダ内の情報は必ずしも正しいとは限らない。たとえば、『アークティック』の ROM 内ヘッダでは VRAM ミラーリングが 4 (マッパー制御) となっているが、実際には H ミラー固定である。</p>
+<p>この ROM 内ヘッダは 1987 年頃から出現しているとのこと。任天堂への提出用なのかもしれないが、詳細は不明。</p>
+<p>thefox 氏が日本/USA/ヨーロッパの ROM セットに対する ROM 内ヘッダの調査結果を公開している。現在はリンク切れだが、Internet Archive から入手できる:</p>
+<ul>
+<li><a href="https://web.archive.org/web/20140922133709/http://thefox.aspekt.fi/hdrinfos-japan-valid.txt">hdrinfos-japan-valid.txt</a></li>
+<li><a href="https://web.archive.org/web/20140922133708/http://thefox.aspekt.fi/hdrinfos-usa-valid.txt">hdrinfos-usa-valid.txt</a></li>
+<li><a href="https://web.archive.org/web/20140922133708/http://thefox.aspekt.fi/hdrinfos-europe-valid.txt">hdrinfos-europe-valid.txt</a></li>
+</ul>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https://taotao54321.github.io/blog/tags/nes/">#NES</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-dq2-parupunte-glitch&#x2F;">‹ DQ2 (FC) パルプンテバグ (とてつもなく恐ろしいもの) の調査 (暫定)</a>
+                    
+                    
+                        <a class="next" href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-excitingrally-debug&#x2F;">エキサイティングラリー (FC) のデバッグ機能 ›</a>
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+      
+          <script type="text/javascript" src="https://taotao54321.github.io/blog/even.js" ></script>
+      
+    </body>
+
+</html>
