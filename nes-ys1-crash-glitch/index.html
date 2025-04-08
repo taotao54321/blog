@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+      
+    
+
+      <title>TaoTao54321&#x27;s blog - イース1 (FC) クラッシュバグ</title>
+
+      
+
+      
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+          
+      
+
+      
+          <link rel="stylesheet" href="https://taotao54321.github.io/blog/site.css">
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+          
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;" class="logo">TaoTao54321&#x27;s blog</a>
+              </div>
+              <div class="mobile-navbar-icon icon-out">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
+              <ul class="mobile-menu-list">
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">
+                            Home
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;&#x2F;tags">
+                            Tags
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;">
+                            My website
+                        </a>
+                    </li>
+                
+              </ul>
+            </nav>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">TaoTao54321&#x27;s blog</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">
+                                    Home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;&#x2F;tags">
+                                    Tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;">
+                                    My website
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+
+
+
+<article class="post">
+    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-ys1-crash-glitch&#x2F;">イース1 (FC) クラッシュバグ</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2025-03-20</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+      <p>FC版『イース1』には CPU が暴走するバグがある。</p>
+<p>正確な発生条件は未解析だが、ゲーム開始直後に素手でザコを壁際に押し付けるように攻撃しつつ反撃で主人公が死ぬと CPU が暴走することがある(大抵は画面が崩れてフリーズする)。</p>
+<p>2025-03-23 追記: 以前は相討ちになるのが条件かと考えていたが、ムービーをよく見ると敵はまだ生きていた。</p>
+<p><img src="https://taotao54321.github.io/blog/nes-ys1-crash-glitch/CrashGlitch.png" alt="フリーズ時の画面" /></p>
+<p>このバグは以下の環境で再現することを確認している:</p>
+<ul>
+<li>筆者所有のニューファミコン</li>
+<li>BizHawk 2.10, NesHawk core (<a href="https://taotao54321.github.io/blog/nes-ys1-crash-glitch/Ys1-CrashGlitch-bizhawk.zip">movie</a>)</li>
+<li>FCEUX 2.6.6 (<a href="https://taotao54321.github.io/blog/nes-ys1-crash-glitch/Ys1-CrashGlitch-fceux.zip">movie</a>)</li>
+<li>Mesen2 commit 16d6d70376916f0e8ef9f88d11425bd5573d537a</li>
+</ul>
+<p>これは、スレッド間の排他制御が甘いため、特定のタイミングで NMI が発生するとバンク切り替えが壊れるのが原因と思われる。たとえば上記の BizHawk 上のムービーでは以下のような挙動を示す:</p>
+<ul>
+<li>冒頭で述べた操作を行った瞬間、NMI ハンドラの処理に長い時間がかかる。</li>
+<li>NMI ハンドラが終了してメインスレッドが再開するが、すぐに NMI が再発生する。このとき、メインスレッドは PRG 5 のコードを実行中である。</li>
+<li>NMI ハンドラが実行され、PRG 14 に切り替えて戻る (本作は NMI 発生時は常に PRG 14 がロードされていると仮定しているようだが、これが成り立っていない)。</li>
+<li>メインスレッドは PRG 5 のコードを実行していたのに、PRG 14 の同じアドレスから実行を再開してしまい、暴走する。</li>
+</ul>
+<p>これは TAS に応用できればかなり早くクリアできそうだが、制御はさほど簡単ではないと思われる。なお、実は CPU が暴走しているが、そのままゲームオーバーになるというケースも確認している (この場合画面右端が少し崩れていた)。</p>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https://taotao54321.github.io/blog/tags/nes/">#NES</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-doublemoon-full-inventory-glitch&#x2F;">‹ ダブルムーン伝説 (FC) インベントリ満杯状態によるメモリ破壊バグ</a>
+                    
+                    
+                        <a class="next" href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-bloodywarriors-ace&#x2F;">ブラッディウァリアーズ (FC) 任意コード実行案 ›</a>
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+      
+          <script type="text/javascript" src="https://taotao54321.github.io/blog/even.js" ></script>
+      
+    </body>
+
+</html>
