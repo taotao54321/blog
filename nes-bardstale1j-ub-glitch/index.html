@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+      
+    
+
+      <title>TaoTao54321&#x27;s blog - バーズテイル (FC) 未定義動作バグ</title>
+
+      
+
+      
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+          
+      
+
+      
+          <link rel="stylesheet" href="https://taotao54321.github.io/blog/site.css">
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+          
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;" class="logo">TaoTao54321&#x27;s blog</a>
+              </div>
+              <div class="mobile-navbar-icon icon-out">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
+              <ul class="mobile-menu-list">
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">
+                            Home
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;&#x2F;tags">
+                            Tags
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;">
+                            My website
+                        </a>
+                    </li>
+                
+              </ul>
+            </nav>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">TaoTao54321&#x27;s blog</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">
+                                    Home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;&#x2F;tags">
+                                    Tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;">
+                                    My website
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+
+
+
+<article class="post">
+    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-bardstale1j-ub-glitch&#x2F;">バーズテイル (FC) 未定義動作バグ</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2025-06-19</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+      <p><strong>注意: 本記事で述べるバグは RAM の初期値に依存して未定義の動作を行うため、実機での実行は推奨しない</strong> (大抵はリセットまたはフリーズが発生すると思われるが、セーブデータ破壊の可能性も否定はできないため)。</p>
+<p>FC版『バーズテイル』は、タイトル画面で入力 Up+Start によりゲームを開始すると未定義動作が発生するバグがあり、主要なエミュレーターではリセットが発生する (<a href="https://taotao54321.github.io/blog/nes-bardstale1j-ub-glitch/BardsTale1J-UbGlitch.zip">movie</a>)。具体的にはバンク切り替えが壊れて RAM <code>$00-</code> が実行されるのだが、本作は起動時にゼロページの初期化を行わないため、RAM <code>$00-</code> の初期値がそのままコードとして実行されることになる。エミュレーターの場合、デフォルト設定では RAM <code>$00</code> の値は 0 であることが多く、これは <code>brk</code> 命令として解釈され、結果としてリセットがかかる (本作では IRQ/BRK と RESET のハンドラが共通であるため)。</p>
+<p>上記入力を行った際にバンク切り替えが壊れる原因は、ギルドへ遷移するより先に前進移動の処理が実行されてしまうことだと思われる。前進移動を行うとPT全員について毒ダメージの判定/処理が行われるが、この時点ではまだPT人数が 0 なので、毒ダメージ判定/処理のループが 256 回実行されてしまう (該当コード: <code>$C80A</code>)。そして、PT 6 人目より後のメンバーについては冒険者構造体ポインタが不正な値になるため、それらのポインタを経由して MMC1 レジスタへの書き込みも行われ、結果として MMC1 の書き込みカウンタがずれてしまう。この状態でバンク切り替えルーチンを呼ぶと不正なバンクがロードされ、そのバンク内のポインタ経由で間接ジャンプを行った結果 RAM <code>$00-</code> が実行されることになる。</p>
+<p>このバグは制御の余地が少ないため、今のところ TAS には応用できていない (PTメンバーが毒ダメージで死ぬ寸前でリセットしてからバグを実行すると実行フローが変化するが、やはり結果はリセットになってしまうようである)。なお、本作は RAM <code>$00-</code> 付近はおそらく未使用なので、ソフトリセットを併用しても通常は <code>brk</code> 以外のコードを実行させることはできない (カートリッジ差し替えを許すなら初期値を自由に設定できるが)。また、仮に制御できるとしても、上記の不正なポインタにより open bus やミラー領域へのアクセスも大量に発生するので、実機での再現性は割と疑わしいところがある。</p>
+<hr />
+<p>2025-06-29 追記:</p>
+<p>本作ではイベントマスの処理を終える際にも前進移動を割り込ませることができる。たとえば、階段を上り下りする際の決定入力を Up+A にすると遷移先のマップで既に 1 歩前進した状態になる (「すすめない!」になることもある)。また、石の顔などのイベントから抜ける際の入力を Up+A にすると壁を抜けて本来進入できない領域を歩くこともできる。</p>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https://taotao54321.github.io/blog/tags/nes/">#NES</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-deepdungeon4-battle-item&#x2F;">‹ ディープダンジョン4 (FC) 戦闘中アイテム使用に関する隠し仕様</a>
+                    
+                    
+                        <a class="next" href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-doublemoon-full-inventory-glitch&#x2F;">ダブルムーン伝説 (FC) インベントリ満杯状態によるメモリ破壊バグ ›</a>
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+      
+          <script type="text/javascript" src="https://taotao54321.github.io/blog/even.js" ></script>
+      
+    </body>
+
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+      
+    
+
+      <title>TaoTao54321&#x27;s blog - ブラッディウァリアーズ (FC) 任意コード実行案</title>
+
+      
+
+      
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+          
+      
+
+      
+          <link rel="stylesheet" href="https://taotao54321.github.io/blog/site.css">
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+          
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;" class="logo">TaoTao54321&#x27;s blog</a>
+              </div>
+              <div class="mobile-navbar-icon icon-out">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
+              <ul class="mobile-menu-list">
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">
+                            Home
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;&#x2F;tags">
+                            Tags
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;">
+                            My website
+                        </a>
+                    </li>
+                
+              </ul>
+            </nav>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">TaoTao54321&#x27;s blog</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">
+                                    Home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;&#x2F;tags">
+                                    Tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;">
+                                    My website
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+
+
+
+<article class="post">
+    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-bloodywarriors-ace&#x2F;">ブラッディウァリアーズ (FC) 任意コード実行案</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2025-03-14</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+      <p>FC版『ブラッディウァリアーズ』はおそらく任意コード実行が可能と思われる。大まかな手順は以下の通り:</p>
+<ul>
+<li>仲間重複加入バグまたは難破バグを用いてPT人数を異常な値にする。</li>
+<li>8 人目以降の不正な仲間に適当なアイテムを装備させ、メモリ内から不正なアイテムを元の装備品として取り出す。</li>
+<li>適切な不正アイテムを取り出して使用または装備すると、アイテム使用ルーチンテーブルの範囲外が参照され、RAM 領域をコードとして実行できる。</li>
+</ul>
+<p>既にある程度知られているとは思うが、まず仲間重複バグについて説明する(難破バグはかなりイベントを進めないと起こせないので省略)。仲間をPTに加えたとき仲間シンボルが主人公シンボルに向けて歩き出すが、その間に再度メニューを開いて話しかけると同じ仲間を重複して加入させることができ、PT人数 (<code>$65B9</code>) を異常な値にできる。</p>
+<p>ここで、たとえばPT人数が 19 で、PT末尾の仲間 (PT内インデックス 18) にバイクを装備させたとする(カーソルは普通に 19 人分動かせる)。この場合、以下のような挙動になる:</p>
+<ul>
+<li>PTメンバーの冒険者ID配列 <code>$6537-</code> のインデックス 18 (<code>$6549</code>) から冒険者IDを取得する。
+これは配列外参照であり、主人公の素の攻撃力を冒険者IDとして取得する。
+ここでは仮に冒険者IDとして 17 が取得されたとする。</li>
+<li>冒険者ID 17 の仲間はバイクを装備し、「元々装備していた乗り物」がアイテムとして得られる。
+ここでは各冒険者の乗り物配列 <code>$6496-</code> のインデックス 17 (<code>$64A7</code>) からアイテムIDを取得する。
+これは配列外参照であり、主人公の経験値の bit0-7 をアイテムIDとして取得する。</li>
+</ul>
+<p>ここで、得られたアイテムを移動中に使用または装備したとする。本作はアイテムID 0x32 以上については装備しても使用したものとして扱うため、不正アイテムについては使用と装備は等価である (該当コード: PRG 10 <code>$869A</code>)。アイテム使用時はルーチンテーブル (PRG 10 <code>$86CA</code>) 内の対応するルーチンが実行されるが、不正アイテムを使用した場合、このルーチンテーブルの範囲外が参照され、場合によっては RAM 領域をコードとして実行させられる。</p>
+<p>有力な不正アイテムの一例として 0x6B (「かなしヘり」(「ヘ」はカタカナ))が挙げられる。これは装備可能アイテムであり、装備(=使用)するとアイテム使用ルーチンとして <code>$64C5-</code> を実行する。<code>$64C5-</code> は各冒険者の現在HP下位バイトの配列なので、ここは割と制御しやすいと考えられる。</p>
+<p>エンディングへ遷移するには PRG 10 のルーチン <code>$8E40</code> を実行すればよい。幸いこれはアイテム使用ルーチンと同じバンクにあるため、バンク切り替えについては特に考慮しなくてよい。たとえば <code>[0x20, 0x40, 0x8E]</code> (<code>jsr $8E40</code>) を実行すればエンディングとなる (エンディングルーチンは戻らないので、<code>jsr</code> の後のことは考えなくてよい)。</p>
+<p>ただし、これを実際に TAS に落とし込むにはいくつかの課題がある:</p>
+<ul>
+<li>実行すべき最適なコードとその構築法の検討。
+制御しやすいメモリ領域として主人公の名前 (<code>$6400-$6405</code>) を経由するのは有力そうだが、ここに <code>jsr $8E40</code> を直接書くことはできないと思われる (名前の文字として 0x40 は使えないため)。</li>
+<li>PT人数を効率よく増やす手法の確立。
+PTメンバーの冒険者ID配列 <code>$6537-</code> の直後には各冒険者の戦闘不能フラグなどがあるが、この辺りの値は 0 または 1 しかないため、不正な冒険者IDを取得するにはPT人数が最低でも 19 は必要と思われる。
+筆者が少し試したところ、仲間重複バグで 1 種類のキャラを加入できる回数には限りがあり、オレルビスならば 8 回までは確認できたが、クレイジーホースのように一枚絵が出るタイプのキャラについては 4 回までしか確認できなかった。
+サブフレームリセットを導入すればオレルビスのみで事足りると思われるが、これだけのために導入するのもどうかという気はする(これは個人的なこだわりにすぎないが)。</li>
+</ul>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https://taotao54321.github.io/blog/tags/nes/">#NES</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-ys1-crash-glitch&#x2F;">‹ イース1 (FC) クラッシュバグ</a>
+                    
+                    
+                        <a class="next" href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-hokuto4-talking-ship-glitch&#x2F;">北斗の拳4 (FC) 船と話せるバグ ›</a>
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+      
+          <script type="text/javascript" src="https://taotao54321.github.io/blog/even.js" ></script>
+      
+    </body>
+
+</html>

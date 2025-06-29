@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+      
+    
+
+      <title>TaoTao54321&#x27;s blog - 6502 の除算ルーチンに時々見られる誤りについて</title>
+
+      
+
+      
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+          
+      
+
+      
+          <link rel="stylesheet" href="https://taotao54321.github.io/blog/site.css">
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+          
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;" class="logo">TaoTao54321&#x27;s blog</a>
+              </div>
+              <div class="mobile-navbar-icon icon-out">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
+              <ul class="mobile-menu-list">
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">
+                            Home
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;&#x2F;tags">
+                            Tags
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;">
+                            My website
+                        </a>
+                    </li>
+                
+              </ul>
+            </nav>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">TaoTao54321&#x27;s blog</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">
+                                    Home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;&#x2F;tags">
+                                    Tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;">
+                                    My website
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+
+
+
+<article class="post">
+    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;6502-buggy-division&#x2F;">6502 の除算ルーチンに時々見られる誤りについて</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2024-12-06</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+      <p>6502 で、<code>u16</code> 値を <code>u8</code> 値で割った商 (<code>u16</code>) と余り (<code>u8</code>) を求めるルーチンを考える。</p>
+<p>以下、全ての除算ルーチンは以下のインターフェースを持つものとする:</p>
+<pre data-lang="ca65" style="background-color:#2b303b;color:#c0c5ce;" class="language-ca65 "><code class="language-ca65" data-lang="ca65"><span style="color:#65737e;">; 引数
+</span><span style="color:#65737e;">;       lhs_quot        左辺 (u16le)
+</span><span style="color:#65737e;">;       rhs             右辺 (u8)
+</span><span style="color:#65737e;">;
+</span><span style="color:#65737e;">; 戻り値
+</span><span style="color:#65737e;">;       lhs_quot        商   (u16le)
+</span><span style="color:#65737e;">;       rem             余り (u8)
+</span><span style="color:#65737e;">;
+</span><span style="color:#65737e;">; 左辺と商については同一のメモリ領域を使い回している。
+</span><span>
+</span><span>lhs_quot := </span><span style="color:#d08770;">$00
+</span><span>rhs      := </span><span style="color:#d08770;">$02
+</span><span>rem      := </span><span style="color:#d08770;">$03
+</span></code></pre>
+<p>正しい実装の一例を示すと以下のようになる (大まかには 2 進数で筆算と同様の操作を行っている)。
+これは <code>0x8000 / 0x81</code> に対して正しい答え (商 0xFE, 余り 2) を返す:</p>
+<pre data-lang="ca65" style="background-color:#2b303b;color:#c0c5ce;" class="language-ca65 "><code class="language-ca65" data-lang="ca65"><span style="color:#65737e;">;;; 正しい u16 / u8 除算。
+</span><span style="color:#65737e;">; 開始時は lhs_quot に左辺が入っており、lhs_quot の下位から商がシフトインしていく。
+</span><span style="color:#65737e;">;
+</span><span style="color:#65737e;">; NOTE: rhs == 0 の場合、quot = 0xFFFF, rem = lhs &amp; 0xFF を返す。
+</span><span style="color:#8fa1b3;">DivCorrect:
+</span><span>        lda     #</span><span style="color:#d08770;">0
+</span><span>        sta     rem
+</span><span>
+</span><span>        ldx     #</span><span style="color:#d08770;">16
+</span><span>        asl     lhs_quot
+</span><span>        rol     lhs_quot+</span><span style="color:#d08770;">1
+</span><span>@loop:
+</span><span>        </span><span style="color:#65737e;">; rem がオーバーフローしたら rhs を減算。
+</span><span>        rol     rem
+</span><span>        </span><span style="color:#b48ead;">bcs</span><span>     @subtract
+</span><span>
+</span><span>        </span><span style="color:#65737e;">; rem &gt;= rhs ならば rhs を減算。
+</span><span>        lda     rem
+</span><span>        cmp     rhs
+</span><span>        </span><span style="color:#b48ead;">bcc</span><span>     @next
+</span><span>@subtract:
+</span><span>        </span><span style="color:#65737e;">; ここでは常にキャリーフラグが真。
+</span><span>        lda     rem
+</span><span>        sbc     rhs
+</span><span>        sta     rem
+</span><span>        sec             </span><span style="color:#65737e;">; rem がオーバーフローした場合、これが必要。
+</span><span>
+</span><span>@next:
+</span><span>        rol     lhs_quot
+</span><span>        rol     lhs_quot+</span><span style="color:#d08770;">1
+</span><span>
+</span><span>        dex
+</span><span>        </span><span style="color:#b48ead;">bne</span><span>     @loop
+</span><span>
+</span><span>        </span><span style="color:#b48ead;">rts
+</span></code></pre>
+<p>しかし、実際に使われている除算ルーチンの中には、右辺の値が大きいときに正しく動かないものがある。</p>
+<p>たとえば、以下のコード (パターン A と呼称する) は計算途中での rem のオーバーフローを考慮していない。
+これは <code>0x8000 / 0x81</code> に対して誤った答え (商 0, 余り 0) を返す:</p>
+<pre data-lang="ca65" style="background-color:#2b303b;color:#c0c5ce;" class="language-ca65 "><code class="language-ca65" data-lang="ca65"><span style="color:#65737e;">;;; 正しくない u16 / u8 除算 (余りのオーバーフローを考慮していない)。
+</span><span style="color:#8fa1b3;">DivWrongA:
+</span><span>        lda     #</span><span style="color:#d08770;">0
+</span><span>        sta     rem
+</span><span>
+</span><span>        ldx     #</span><span style="color:#d08770;">16
+</span><span>        asl     lhs_quot
+</span><span>        rol     lhs_quot+</span><span style="color:#d08770;">1
+</span><span>@loop:
+</span><span>        </span><span style="color:#65737e;">; XXX: ここでのオーバーフローを考慮していない!
+</span><span>        rol     rem
+</span><span>
+</span><span>        lda     rem
+</span><span>        cmp     rhs
+</span><span>        </span><span style="color:#b48ead;">bcc</span><span>     @next
+</span><span>@subtract:
+</span><span>        </span><span style="color:#65737e;">; ここでは常にキャリーフラグが真。
+</span><span>        lda     rem
+</span><span>        sbc     rhs
+</span><span>        sta     rem
+</span><span>
+</span><span>@next:
+</span><span>        rol     lhs_quot
+</span><span>        rol     lhs_quot+</span><span style="color:#d08770;">1
+</span><span>
+</span><span>        dex
+</span><span>        </span><span style="color:#b48ead;">bne</span><span>     @loop
+</span><span>
+</span><span>        </span><span style="color:#b48ead;">rts
+</span></code></pre>
+<p>また、以下のコード (パターン B と呼称する) は rem のオーバーフローは考慮しているが、減算後のキャリーフラグが常に真であると誤って仮定している。
+これは <code>0x8000 / 0x81</code> に対して誤った答え (商 0x7E, 余り 2) を返す:</p>
+<pre data-lang="ca65" style="background-color:#2b303b;color:#c0c5ce;" class="language-ca65 "><code class="language-ca65" data-lang="ca65"><span style="color:#65737e;">;;; 正しくない u16 / u8 除算 (余りのオーバーフロー時、減算後にキャリーフラグをセットしていない)。
+</span><span style="color:#8fa1b3;">DivWrongB:
+</span><span>        lda     #</span><span style="color:#d08770;">0
+</span><span>        sta     rem
+</span><span>
+</span><span>        ldx     #</span><span style="color:#d08770;">16
+</span><span>        asl     lhs_quot
+</span><span>        rol     lhs_quot+</span><span style="color:#d08770;">1
+</span><span>@loop:
+</span><span>        rol     rem
+</span><span>        </span><span style="color:#b48ead;">bcs</span><span>     @subtract
+</span><span>
+</span><span>        lda     rem
+</span><span>        cmp     rhs
+</span><span>        </span><span style="color:#b48ead;">bcc</span><span>     @next
+</span><span>@subtract:
+</span><span>        </span><span style="color:#65737e;">; ここでは常にキャリーフラグが真。
+</span><span>        lda     rem
+</span><span>        sbc     rhs
+</span><span>        sta     rem
+</span><span>        </span><span style="color:#65737e;">; XXX: sbc で必ずキャリーフラグが真になると仮定しているが、rem がオーバーフローした場合これは成り立たない!
+</span><span>
+</span><span>@next:
+</span><span>        rol     lhs_quot
+</span><span>        rol     lhs_quot+</span><span style="color:#d08770;">1
+</span><span>
+</span><span>        dex
+</span><span>        </span><span style="color:#b48ead;">bne</span><span>     @loop
+</span><span>
+</span><span>        </span><span style="color:#b48ead;">rts
+</span></code></pre>
+<p>NES/SNES/PCE の場合、いくつかのゲームで <code>u16 / u8</code> などの除算ルーチンが パターン A の誤った実装になっていることを確認している。
+しかし、パターン A, B とも右辺が 0x80 を超えないならば問題は起こらないはずなので、それも考慮すると TAS 的な意味でこれが役立つケースはあまり多くないと思われる。</p>
+<p>本記事中のコードを NES 向けにまとめたものを<a href="https://gist.github.com/taotao54321/22fe89edf7539032e98a4a3b0037dd88">置いておく</a>。
+NES エミュレータでステップ実行すると各ルーチンで答えが違うことがわかる。</p>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https://taotao54321.github.io/blog/tags/nes/">#NES</a>
+                    
+                        <a href="https://taotao54321.github.io/blog/tags/6502/">#6502</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;snes-hokuto5-cheat-command&#x2F;">‹ 北斗の拳5 (SFC) 裏技コマンド集</a>
+                    
+                    
+                        <a class="next" href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;snes-earthlight2-extdebug&#x2F;">アースライト ルナ・ストライク (SFC) 拡張デバッグメニュー ›</a>
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+      
+          <script type="text/javascript" src="https://taotao54321.github.io/blog/even.js" ></script>
+      
+    </body>
+
+</html>
