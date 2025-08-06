@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+      
+    
+
+      <title>TaoTao54321&#x27;s blog - 未来神話ジャーヴァス (FC) バトル敗北時に兵力が激増するバグの詳細</title>
+
+      
+
+      
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+          
+      
+
+      
+          <link rel="stylesheet" href="https://taotao54321.github.io/blog/site.css">
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+          
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;" class="logo">TaoTao54321&#x27;s blog</a>
+              </div>
+              <div class="mobile-navbar-icon icon-out">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
+              <ul class="mobile-menu-list">
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">
+                            Home
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;&#x2F;tags">
+                            Tags
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;">
+                            My website
+                        </a>
+                    </li>
+                
+              </ul>
+            </nav>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">TaoTao54321&#x27;s blog</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">
+                                    Home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;&#x2F;tags">
+                                    Tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;">
+                                    My website
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+
+
+
+<article class="post">
+    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-jarvas-force-glitch&#x2F;">未来神話ジャーヴァス (FC) バトル敗北時に兵力が激増するバグの詳細</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2024-08-01</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+      <p>FC版未来神話ジャーヴァスは、ギルド内のバトルで負けると名声値が 1 下がり(ただし負にはならない)、さらに自軍の兵力が以下のように変化する:</p>
+<ul>
+<li>敗北後の名声値が 0 の場合、全ユニットの兵力が 0 になる。</li>
+<li>敗北後の名声値が 0 でない場合、志願兵、傭兵、グルカ兵の兵力が変動する。</li>
+</ul>
+<p>後者のケースは本来「志願兵、傭兵、グルカ兵の兵力がそれぞれ 3/4 になる」仕様だったと思われるが、バグにより実際にはこれらの兵力が激増することがある。
+なお、この現象は 2019 年には既に<a href="https://x.com/oresika2010/status/1130521162797047809">発見されていた</a>模様。</p>
+<p>このバグには以下の 2 つの誤りが関係している:</p>
+<ul>
+<li>兵力減少ルーチン内の計算ミス</li>
+<li>兵力減少ルーチンを呼び出す際の引数渡しのミス</li>
+</ul>
+<p>まず兵力減少ルーチン (<code>$F1DD</code>) について述べる。このルーチンはバトルで負けた際に志願兵/傭兵/グルカ兵それぞれについて呼び出されている。コードを以下に示す:</p>
+<pre data-lang="ca65" style="background-color:#2b303b;color:#c0c5ce;" class="language-ca65 "><code class="language-ca65" data-lang="ca65"><span style="color:#65737e;">;;; バトルに負けた際の兵力「減少」の計算。
+</span><span style="color:#65737e;">; 引数
+</span><span style="color:#65737e;">;       A       元の兵力上位
+</span><span style="color:#65737e;">;       X       元の兵力下位
+</span><span style="color:#65737e;">;
+</span><span style="color:#65737e;">; 戻り値
+</span><span style="color:#65737e;">;       A       結果の兵力上位
+</span><span style="color:#65737e;">;       X       結果の兵力下位
+</span><span style="color:#8fa1b3;">L_F1DD:
+</span><span>        </span><span style="color:#65737e;">; quarter = (元の値) / 4
+</span><span>        </span><span style="color:#65737e;">; half    = (元の値) / 2
+</span><span>@quarter := </span><span style="color:#d08770;">$F0
+</span><span>@half := </span><span style="color:#d08770;">$F2
+</span><span>        stx     @quarter
+</span><span>        sta     @quarter+</span><span style="color:#d08770;">1
+</span><span>        stx     @half
+</span><span>        sta     @half+</span><span style="color:#d08770;">1
+</span><span>        </span><span style="color:#b48ead;">.repeat </span><span style="color:#d08770;">2
+</span><span>                lsr     @quarter+</span><span style="color:#d08770;">1
+</span><span>                ror     @quarter
+</span><span>        </span><span style="color:#b48ead;">.endrepeat
+</span><span>        lsr     @half+</span><span style="color:#d08770;">1
+</span><span>        ror     @half
+</span><span>
+</span><span>        </span><span style="color:#65737e;">; XXX: ここで本来は quarter + half を返したかったのだろうが、実際には全く違う計算になっている。
+</span><span>        </span><span style="color:#65737e;">; 戻り値下位は add((元の兵力上位), quarter &amp; 0xFF) となる。
+</span><span>        </span><span style="color:#65737e;">; 戻り値上位は adc(X, quarter &gt;&gt; 8) となる。
+</span><span>        clc
+</span><span>        adc     @quarter
+</span><span>        sta     @half
+</span><span>        tax
+</span><span>        adc     @quarter+</span><span style="color:#d08770;">1
+</span><span>        sta     @half+</span><span style="color:#d08770;">1
+</span><span>
+</span><span>        </span><span style="color:#b48ead;">rts
+</span></code></pre>
+<p><code>XXX</code> コメントにある通り、このコードは元の兵力の 3/4 を返さない。たとえば元の兵力が 255 なら結果の兵力は 16191 となる。</p>
+<p><code>XXX</code> の箇所の計算式は、元の兵力を <script type="math/tex">f</script>
+ とおくと以下のように整理できる:</p>
+<script type="math/tex;mode=display">257 \cdot (\lfloor \frac{f}{256} \rfloor + \lfloor \frac{f}{4} \rfloor) \mod 65536</script>
+<p>たとえば Rust では以下のように書ける:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">decrease_force</span><span>(</span><span style="color:#bf616a;">f</span><span>: </span><span style="color:#b48ead;">u16</span><span>) -&gt; </span><span style="color:#b48ead;">u16 </span><span>{
+</span><span>    (f / </span><span style="color:#d08770;">256 </span><span>+ f / </span><span style="color:#d08770;">4</span><span>).</span><span style="color:#96b5b4;">wrapping_mul</span><span>(</span><span style="color:#d08770;">257</span><span>)
+</span><span>}
+</span></code></pre>
+<p>兵力減少ルーチンについては以上だが、話はこれで終わりではなく、実際に志願兵 0 人、傭兵 255 人の状態でこのバグを試すと傭兵は 0 人になる。これは上記ルーチンの呼び出し側の引数渡しにもミスがあることが原因。呼び出し側のコード (<code>$F175</code>) を以下に示す:</p>
+<pre data-lang="ca65" style="background-color:#2b303b;color:#c0c5ce;" class="language-ca65 "><code class="language-ca65" data-lang="ca65"><span>force_irregular := </span><span style="color:#d08770;">$0411 </span><span style="color:#65737e;">; 志願兵の兵力 (u16le)
+</span><span>force_mercenary := </span><span style="color:#d08770;">$0413 </span><span style="color:#65737e;">; 傭兵の兵力 (u16le)
+</span><span>force_gurkha    := </span><span style="color:#d08770;">$0415 </span><span style="color:#65737e;">; グルカ兵の兵力 (u16le)
+</span><span>
+</span><span style="color:#8fa1b3;">L_F175:
+</span><span>        </span><span style="color:#65737e;">; 志願兵の兵力減少処理。
+</span><span>        lda     force_irregular+</span><span style="color:#d08770;">1
+</span><span>        ldx     force_irregular
+</span><span>        </span><span style="color:#b48ead;">jsr</span><span>     L_F1DD
+</span><span>        sta     force_irregular+</span><span style="color:#d08770;">1
+</span><span>        stx     force_irregular
+</span><span>
+</span><span>        </span><span style="color:#65737e;">; 傭兵の兵力減少処理。
+</span><span>        lda     force_mercenary+</span><span style="color:#d08770;">1
+</span><span>        stx     force_mercenary </span><span style="color:#65737e;">; XXX: stx は ldx の typo!
+</span><span>        </span><span style="color:#b48ead;">jsr</span><span>     L_F1DD
+</span><span>        sta     force_mercenary+</span><span style="color:#d08770;">1
+</span><span>        stx     force_mercenary
+</span><span>
+</span><span>        </span><span style="color:#65737e;">; グルカ兵の兵力減少処理。
+</span><span>        lda     force_gurkha+</span><span style="color:#d08770;">1
+</span><span>        ldx     force_gurkha
+</span><span>        </span><span style="color:#b48ead;">jsr</span><span>     L_F1DD
+</span><span>        sta     force_gurkha+</span><span style="color:#d08770;">1
+</span><span>        stx     force_gurkha
+</span></code></pre>
+<p><code>XXX</code> コメントにある通り、傭兵については <code>ldx</code> とすべきところを <code>stx</code> と typo している。
+つまり、傭兵の「元の兵力」は上位バイトのみが正しく、下位バイトは志願兵の変化後の兵力の下位バイトがそのまま引き継がれる。これによる兵力の変化例をいくつか示す:</p>
+<ul>
+<li>志願兵 0 人、傭兵 255 人なら志願兵は 0 人のままで、傭兵の「元の兵力」は 0 となり、傭兵は 0 人に変化する。</li>
+<li>志願兵 0 人、傭兵 256 人以上 511 人以下なら志願兵は 0 人のままで、傭兵の「元の兵力」は 256 となり、傭兵は 16705 人に変化する。</li>
+<li>志願兵 255 人、傭兵 0 人なら志願兵は 16191 人に変化し、これにより傭兵の「元の兵力」は 63 となり、傭兵は 3855 人に変化する。</li>
+</ul>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https://taotao54321.github.io/blog/tags/nes/">#NES</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;snes-earthlight2-extdebug&#x2F;">‹ アースライト ルナ・ストライク (SFC) 拡張デバッグメニュー</a>
+                    
+                    
+                        <a class="next" href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-birdweek-boot&#x2F;">バードウィーク (FC) のブート処理は実はバグっている ›</a>
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+      
+          <script type="text/javascript" src="https://taotao54321.github.io/blog/even.js" ></script>
+      
+    </body>
+
+</html>

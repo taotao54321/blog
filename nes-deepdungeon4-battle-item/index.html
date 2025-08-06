@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+      
+    
+
+      <title>TaoTao54321&#x27;s blog - ディープダンジョン4 (FC) 戦闘中アイテム使用に関する隠し仕様</title>
+
+      
+
+      
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+          
+      
+
+      
+          <link rel="stylesheet" href="https://taotao54321.github.io/blog/site.css">
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+          
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;" class="logo">TaoTao54321&#x27;s blog</a>
+              </div>
+              <div class="mobile-navbar-icon icon-out">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
+              <ul class="mobile-menu-list">
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">
+                            Home
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;&#x2F;tags">
+                            Tags
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;">
+                            My website
+                        </a>
+                    </li>
+                
+              </ul>
+            </nav>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">TaoTao54321&#x27;s blog</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">
+                                    Home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;&#x2F;tags">
+                                    Tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;">
+                                    My website
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+
+
+
+<article class="post">
+    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-deepdungeon4-battle-item&#x2F;">ディープダンジョン4 (FC) 戦闘中アイテム使用に関する隠し仕様</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2025-06-29</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+      <p>FC版『ディープダンジョン4』は、主人公のレベルが高くなると本来戦闘中に使えないアイテムが使えるようになる仕様がある (該当ルーチン: PRG 2 <code>$88F9</code>)。該当するアイテムの一覧を示す:</p>
+<table><thead><tr><th>アイテム</th><th style="text-align: right">所要LV</th><th>効果</th></tr></thead><tbody>
+<tr><td>0x38:すいしょう</td><td style="text-align: right">40</td><td>敵軍の先頭の者を確実に即死させる。<br>ラスボスを含む全ての敵に有効。</td></tr>
+<tr><td>0x41:あおのかぎ</td><td style="text-align: right">16</td><td>自軍全体の死亡以外の状態異常を治す。</td></tr>
+<tr><td>0x42:あかのかぎ</td><td style="text-align: right">30</td><td>自軍単体のHPを 3〜15 回復する。</td></tr>
+<tr><td>0x44:にじのほうせき</td><td style="text-align: right">25</td><td>敵軍全体に 15〜135 のダメージを与える。</td></tr>
+<tr><td>0x46:てつのごふ</td><td style="text-align: right">40</td><td>敵軍単体に 15〜165 のダメージを与える。</td></tr>
+<tr><td>0x48:かいろうのみち</td><td style="text-align: right">36</td><td>自軍全体のHPを 3〜15 回復する。</td></tr>
+<tr><td>0x4C:ソロモンリング</td><td style="text-align: right">50</td><td>デーモンを召喚する。</td></tr>
+</tbody></table>
+<p>なお、本作は主人公の名前を「みさりん」にするとニューゲーム開始時およびロード時に経験値が激増するので、それを使うと手軽に試せる。</p>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https://taotao54321.github.io/blog/tags/nes/">#NES</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-golfkko-event-20250803&#x2F;">‹ ゴルフッ子オープン (FC) イベント発生条件</a>
+                    
+                    
+                        <a class="next" href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-bardstale1j-ub-glitch&#x2F;">バーズテイル (FC) 未定義動作バグ ›</a>
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+      
+          <script type="text/javascript" src="https://taotao54321.github.io/blog/even.js" ></script>
+      
+    </body>
+
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+      
+    
+
+      <title>TaoTao54321&#x27;s blog - 北斗の拳4 (FC) 船と話せるバグ</title>
+
+      
+
+      
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+          
+      
+
+      
+          <link rel="stylesheet" href="https://taotao54321.github.io/blog/site.css">
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+          
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;" class="logo">TaoTao54321&#x27;s blog</a>
+              </div>
+              <div class="mobile-navbar-icon icon-out">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
+              <ul class="mobile-menu-list">
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">
+                            Home
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;&#x2F;tags">
+                            Tags
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;">
+                            My website
+                        </a>
+                    </li>
+                
+              </ul>
+            </nav>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">TaoTao54321&#x27;s blog</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">
+                                    Home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;&#x2F;tags">
+                                    Tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;">
+                                    My website
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+
+
+
+<article class="post">
+    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-hokuto4-talking-ship-glitch&#x2F;">北斗の拳4 (FC) 船と話せるバグ</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2025-03-08</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+      <p>FC版『北斗の拳4』は、船に対して話しかけると全く関係ないセリフを喋るバグがある。</p>
+<p><img src="https://taotao54321.github.io/blog/nes-hokuto4-talking-ship-glitch/TalkingShip-Overworld.png" alt="フィールド上での船との会話" /></p>
+<p>これは、NPCシンボルリストから会話対象を探す際に船も対象となっているのが原因 (船はNPCインデックス 14 で、<code>$0620-$062F</code> で管理されている)。本作は船との会話は想定していないため、船に話しかけた際はNPC会話テーブル (PRG 9 <code>$AA10</code>) の範囲外を参照し、そこから取得したポインタ経由で会話スクリプトを実行することになる。</p>
+<p>フィールド上で船に話しかけた場合はバハモンの村人のセリフを喋るだけだが、船に乗ったまま<a href="https://www.nicovideo.jp/watch/sm43281068">ムーンウォークバグ</a>を行うと他のマップにも船を持ち込むことができ、その状態で船に話しかけるとマップID <code>$9A</code> に応じて会話の内容が変化する(会話テーブルはマップごとに設定されているため)。</p>
+<p>マップによっては会話スクリプトポインタが RAM 上に設定されることがあり、この場合不正なテキストスクリプトIDが実行されてバグったセリフを喋ることもある。たとえば、イベリアまたはデスロレンスに船を持ち込んで会話すると <code>$90-</code> から会話スクリプトが読み込まれ、会話タイミングにより様々なバグり方をする (NMI カウンタ <code>$91</code> および後続の雑用変数の値に依存)。</p>
+<p>もし、このバグを用いてテキストスクリプトID 0x00A0 を実行することができればエンディングフラグ <code>$ED</code> が 1 になり、直ちにエンディングが始まる。ただし、全マップについて調べたところ、会話スクリプトポインタを制御しやすい RAM 領域に設定できるケースは見つからなかった。筆者が試行錯誤した限り、最も有望そうなのはラフレンス (<code>$6D-</code> を会話スクリプトとして実行) で、これは七星光の残り時間タイマー <code>$8D-$8E</code> をテキストスクリプトIDとして利用できる可能性があるが、必要なイベントフラグを立てられないなどの問題があり、今のところエンディング直行は実現できていない。</p>
+<hr />
+<p>2025-03-11 追記:</p>
+<p>一応エンディング呼び出しは可能なことを確認 (<a href="https://tasvideos.org/9571S">submission</a>, <a href="https://www.nicovideo.jp/watch/sm44748962">encode</a>)。</p>
+<p>ただし、このバグに関してはテキストスクリプトや頻出語の組み合わせが大量にあるため、徹底的に探索すればよりよい解が見つかるかもしれない。</p>
+<hr />
+<p>2025-03-17 追記:</p>
+<p>本作には船が増殖するバグもあるが、今のところ TAS における用途は見当たらない。一応詳細を記しておく。</p>
+<p>ガルグを撃破するとフィールド上に船が出現するようになるが、この後ガルグタウンで船頭のタロウザに話しかけて外に出ると、フィールド上の船が 2 つに分裂する(座標は重なっている)。分裂した船はNPCインデックス 3 を持つ (通常の船のインデックスは 14)。</p>
+<p>この重なった船に対して話しかけると分裂した船の方が優先して処理され、デルモンのセリフの一部を喋る (このセリフ自体は未使用テキストスクリプトID用のプレースホルダと思われる)。</p>
+<p><img src="https://taotao54321.github.io/blog/nes-hokuto4-talking-ship-glitch/DupeShip-1.png" alt="フィールド上での分裂した船との会話" /></p>
+<p>また、この重なった船に乗り込むと分裂した船の方に乗り込むことになる。ただし、この船から降りると船の分裂は解除される(本物の船に置き換わる)。ムーンウォークバグを用いて町などに入った場合も同様。</p>
+<p><img src="https://taotao54321.github.io/blog/nes-hokuto4-talking-ship-glitch/DupeShip-2.png" alt="フィールド上に船が 2 つ存在する" /></p>
+<p>分裂後の船を町などに持ち込む方法は見つかっていないので、これは現状では特に実用性はないと思われる。</p>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https://taotao54321.github.io/blog/tags/nes/">#NES</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-bloodywarriors-ace&#x2F;">‹ ブラッディウァリアーズ (FC) 任意コード実行案</a>
+                    
+                    
+                        <a class="next" href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-bloodywarriors-illuyankas-glitch&#x2F;">ブラッディウァリアーズ (FC) イルルヤンカシュからの聖石奪還イベントでクラッシュ ›</a>
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+      
+          <script type="text/javascript" src="https://taotao54321.github.io/blog/even.js" ></script>
+      
+    </body>
+
+</html>

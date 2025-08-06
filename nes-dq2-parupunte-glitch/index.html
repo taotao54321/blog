@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+      
+    
+
+      <title>TaoTao54321&#x27;s blog - DQ2 (FC) パルプンテバグ (とてつもなく恐ろしいもの) の調査 (暫定)</title>
+
+      
+
+      
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+          
+      
+
+      
+          <link rel="stylesheet" href="https://taotao54321.github.io/blog/site.css">
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+          
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;" class="logo">TaoTao54321&#x27;s blog</a>
+              </div>
+              <div class="mobile-navbar-icon icon-out">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
+              <ul class="mobile-menu-list">
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">
+                            Home
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;&#x2F;tags">
+                            Tags
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;">
+                            My website
+                        </a>
+                    </li>
+                
+              </ul>
+            </nav>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">TaoTao54321&#x27;s blog</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">
+                                    Home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;&#x2F;tags">
+                                    Tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;">
+                                    My website
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+
+
+
+<article class="post">
+    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-dq2-parupunte-glitch&#x2F;">DQ2 (FC) パルプンテバグ (とてつもなく恐ろしいもの) の調査 (暫定)</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2024-06-22</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+      <p>FC版DQ2は、パルプンテで「とてつもなく恐ろしいもの」を呼び出した際に不具合が起こりうることが知られている。
+知らない人は以下の資料などを参照 (YouTube にもいくつか動画がある):</p>
+<ul>
+<li><a href="https://penmura.web.fc2.com/dq/dq2-12.html">DQ裏全(仮) - 「とてつもなく恐ろしいもの」に関する不具合</a></li>
+<li><a href="https://wikiwiki.jp/dqdic3rd/%E3%80%90%E3%81%A8%E3%81%A6%E3%81%A4%E3%82%82%E3%81%AA%E3%81%8F%E6%81%90%E3%82%8D%E3%81%97%E3%81%84%E5%AD%98%E5%9C%A8%E3%80%91#l1cebe8e">ドラゴンクエスト大辞典を作ろうぜ！！第三版 Wiki* - 【とてつもなく恐ろしい存在】</a></li>
+</ul>
+<p>少し調べたところ、これは配列外書き込みによりスタックが壊れるのが原因と思われる。以下に現時点で判明していることを記す (バグの挙動確認は Mesen 上で行った)。</p>
+<p>敵が消滅する際、配列 <code>$0162-</code> に 0xFF が代入されるが、このときインデックスとして <code>$9F</code> の値が使われる (該当コード: PRG 4 <code>$9C39</code>)。
+しかし、「とてつもなく恐ろしいもの」の場合 <code>$9F</code> が更新されない (特定の敵でなく「まもののむれは にげだした」になるためと思われる)。</p>
+<p>この場合、<code>$9F</code> は <code>2 * (正規乱数)</code> の乗算における一時変数の値となる (味方が気絶する際に謎の「ダメージ計算」が行われるため。該当コード: PRG 4 <code>$AE31</code>)。
+乗算の左辺が 2 である関係上、結果の <code>$9F</code> の値は 4 の倍数となる。よって、アドレス <code>0x0162 + 4*n</code> に 0xFF が上書きされる、という動作になる。</p>
+<p>通常エンカウントの場合、この対象アドレスが <code>$01FE</code> または <code>$01FA</code> になると使用中のスタック領域が壊れ、以下のような挙動を示す:</p>
+<ul>
+<li><code>$01FE</code>: ルプガナイベントが始まる (最も有名なパターンと思われる)。</li>
+<li><code>$01FA</code>: なぜか戦闘が継続する。</li>
+</ul>
+<p>対象アドレスがこれより低位だと未使用スタック領域、高位だとスプライトバッファとなるため破壊しても挙動はおそらく変化しない。</p>
+<p>しかし、スタックの使用状況を変化させると破壊時の挙動も変化する。
+たとえば、ローレシア城地下の地獄の使い戦ではスタック使用量が少し多くなり、<code>$01FE</code>, <code>$01FA</code> の他に <code>$01F6</code>, <code>$01F2</code> も使用中となる。スタック破壊時の挙動も以下のように変化する:</p>
+<ul>
+<li><code>$01FE</code>: バンク切り替えが壊れ、CPU が暴走後クラッシュする。</li>
+<li><code>$01FA</code>: 戦闘から抜けた後さらにハーゴン戦が始まる。勝っても何もなし (イベント処理を経由していないため、シドー戦発生フラグが立たない (<code>$44</code> の値が 0x64 のとき特定座標でシドー戦が発生))。</li>
+<li><code>$01F6</code>: 少しラグが発生した後、普通に戦闘から抜ける (詳細未確認)。</li>
+<li><code>$01F2</code>: プログラムカウンタが <code>$2FC9</code> へ飛び、CPU が暴走/クラッシュする (PPU レジスタ領域を実行するため、ほぼ制御不能と思われる)。</li>
+</ul>
+<p>今のところスピードラン的に有用そうな現象は見つかっていないが、セットアップ次第では何かしらの新展開に繋がるかもしれない。</p>
+<p>なお、破壊対象となるアドレスは「パルプンテのエフェクトが出た直後」の乱数状態 (CRC) <code>$32-$33</code> の値により決まる。
+いくつかのスタック上アドレスについて破壊するための CRC 値の一例を記しておく (PT 3 人生存時。リトルエンディアンであることに注意: たとえば値が 0x1234 なら <code>$32-$33</code> を <code>[0x34, 0x12]</code> とする):</p>
+<ul>
+<li><code>$01FE</code>: 0x008B</li>
+<li><code>$01FA</code>: 0x007B</li>
+<li><code>$01F6</code>: 0x0036</li>
+<li><code>$01F2</code>: 0x0023</li>
+<li><code>$01EE</code>: 0x0047</li>
+</ul>
+<p>ただし、デバッガで試す場合は PRG 4 <code>$9C39</code> にブレークを仕掛けて <code>$9F</code> の値を直接書き換える方が簡単である。</p>
+<hr />
+<p>2024-06-22 追記:</p>
+<p>ローレシア地下の地獄の使い戦でパルプンテバグにより <code>$01FE</code> を破壊した場合、実行されるコードをプレイヤーがある程度制御できるが、任意コード実行まで繋がるかどうかは疑わしい。一応この場合の処理の概略を示す:</p>
+<ul>
+<li>スタックポインタが 0xFF の状態で <code>rts</code> 命令が実行される。よって、戻りアドレスは <code>$0100-$0101</code> から取得される。</li>
+<li>このとき取得される戻りアドレスは 0x0502 で固定と思われる (<code>$0100-</code> はパルプンテを使う際にムーンの呪文リストで上書きされるため)。
+よって、<code>rts</code> 命令によりプログラムカウンタは <code>$0503</code> へ飛ぶ。</li>
+<li>ここで <code>$0500-$0519</code> は現在のパレットデータなので、実行されるコード自体は固定である。
+ただし分岐命令の行き先が RAM および PPU レジスタの値に依存している。Mesen 上では <code>$051D</code> へ飛ぶケースを確認している。</li>
+<li>ここで、<code>$051A-$0529</code> は開けた宝箱の座標の配列、<code>$052A-$0539</code> は開けた扉の座標の配列である。
+よって、<code>$051D</code> 以降で実行されるコードはプレイヤーがある程度制御可能である。</li>
+</ul>
+<p>というわけで、<code>$0503</code> 以降に実行される分岐命令の行き先を制御した上で、宝箱座標や扉座標を使ってうまく 6502 コードを組み立てられるなら…
+と言いたいところだが、宝箱座標や扉座標はフィールドに出るとクリアされてしまうため、書けるコードは著しく制限される。よってエンディング呼び出しや任意コード実行に繋がるかどうかは疑問。
+一応 <code>$053A-</code> がPTキャラ/NPCのシンボル構造体リストになっているが、これも制御の余地は少ない。</p>
+<p>ただ、任意コード実行はできなくても、<code>$D0</code> の bit7 が 1 ならばシドー撃破済と判定されるので、その方向で攻める手はあるかもしれない。</p>
+<hr />
+<p>2024-06-26 追記:</p>
+<p>ローレシア地下の地獄の使い戦で <code>$01FE</code> を破壊した場合、<code>$0503</code> へ飛んだ後 <code>$0540</code> の kil 命令 (0x02) を実行してクラッシュするようだが、この 0x02 は主人公シンボルの向き(南)なので、他の固定戦闘を使えば回避できるかもしれない(例: 海底洞窟の地獄の使い*2戦)。</p>
+<p>その場合、主人公/NPCシンボル領域 <code>$053A-$05F1</code> を頑張って調整し、プログラムカウンタをインベントリ領域 <code>$0600-</code> などに飛ばせれば任意コード実行に繋がるかもしれない。できるとしても調整がかなり面倒そうではあるが…。</p>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https://taotao54321.github.io/blog/tags/nes/">#NES</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-tanigawa3-meijin-cheat&#x2F;">‹ 谷川浩司の将棋指南3 (FC) 名人戦モードを即クリアする裏技</a>
+                    
+                    
+                        <a class="next" href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-in-rom-header&#x2F;">一部の商用 FC&#x2F;NES ゲームに存在する ROM 内ヘッダについて ›</a>
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+      
+          <script type="text/javascript" src="https://taotao54321.github.io/blog/even.js" ></script>
+      
+    </body>
+
+</html>

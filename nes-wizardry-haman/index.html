@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+      
+    
+
+      <title>TaoTao54321&#x27;s blog - Wizardry 3 部作 (FC&#x2F;NES) の HAMAN の恩恵は 6 種類</title>
+
+      
+
+      
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+          
+      
+
+      
+          <link rel="stylesheet" href="https://taotao54321.github.io/blog/site.css">
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+          
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;" class="logo">TaoTao54321&#x27;s blog</a>
+              </div>
+              <div class="mobile-navbar-icon icon-out">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
+              <ul class="mobile-menu-list">
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">
+                            Home
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;&#x2F;tags">
+                            Tags
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;">
+                            My website
+                        </a>
+                    </li>
+                
+              </ul>
+            </nav>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">TaoTao54321&#x27;s blog</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;">
+                                    Home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;&#x2F;tags">
+                                    Tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;">
+                                    My website
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+
+
+
+<article class="post">
+    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-wizardry-haman&#x2F;">Wizardry 3 部作 (FC&#x2F;NES) の HAMAN の恩恵は 6 種類</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2023-10-16</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+      <p>一般に Wizardry #1, #2, #3 の HAMAN で出現するのは以下の 5 種類の恩恵とされている:</p>
+<ul>
+<li>0: パーティを治療する</li>
+<li>1: 魔物を黙らせる</li>
+<li>2: 魔力を増大する</li>
+<li>3: 魔物をテレポートする</li>
+<li>4: パーティを回復させる</li>
+</ul>
+<p>しかし、少なくとも FC/NES 版では低確率で "5: パーティを守る" も出現する。つまり 6 種類の恩恵が出現しうる(確率は一様ではない)。</p>
+<p>これは、FC/NES 版の恩恵生成処理が以下のようになっているため:</p>
+<ul>
+<li><code>恩恵[0]</code> を <code>0..=3</code> からランダムに選ぶ。</li>
+<li><code>恩恵[1]</code> を <code>0..=3</code> からランダムに選び、これが既存の恩恵と等しいなら 1 を加える。</li>
+<li><code>恩恵[2]</code> を <code>0..=3</code> からランダムに選び、これが既存の恩恵と等しい限り 1 を加えることを繰り返す。</li>
+</ul>
+<p>つまり、3 回の乱数生成で全て恩恵 3 が選ばれた場合 <code>恩恵[2]</code> は 5 となる。</p>
+<p>なお、MAHAMAN の場合は各恩恵を <code>0..=6</code> からランダムに選び、重複しなくなるまで 1 を mod 7 で加算するという処理になっている。よって、「魔物をテレポートする」を狙う場合は HAMAN の方が有利(直観に合致する)。</p>
+<p>Wizardry 五つの試練では HAMAN が「シックスブーンズ」と改名されているが、この名称はこれに由来するのかも?(五つの試練の方で 6 種類の恩恵が出るかどうかは調べていないが)</p>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https://taotao54321.github.io/blog/tags/nes/">#NES</a>
+                    
+                        <a href="https://taotao54321.github.io/blog/tags/wizardry/">#Wizardry</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-cycle-dependent-rng&#x2F;">‹ NES ゲームにおける CPU サイクル依存乱数とその調整法</a>
+                    
+                    
+                        <a class="next" href="https:&#x2F;&#x2F;taotao54321.github.io&#x2F;blog&#x2F;nes-tennis-decimal-format&#x2F;">テニス (FC&#x2F;NES) の賢い 10 進フォーマット ›</a>
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+      
+          <script type="text/javascript" src="https://taotao54321.github.io/blog/even.js" ></script>
+      
+    </body>
+
+</html>
